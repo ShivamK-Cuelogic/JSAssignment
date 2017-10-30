@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src='Js//LoginModule.js'></script>
+        <script src='Js/RegistrationModule.js'></script>
+        <script src='Js/StorageModule.js'></script>
+        <script src="Js/HomeModule.js"></script>
+        <script src="Js/ViewMemberModule.js"></script>
+        <script src="Js/EditProfileModule.js"></script>
+        <script src="Js/addStudentModule.js"></script>
+    </head>
+    <body background="Images/bg.jpg">
+        <div id='registrationPage' hidden=true>
+            <div class="container">
+                <form id='registrationForm'>
+                    <h1>Registration Form</h1>
+                    <div class="form-group row">
+                            <div class="col-xs-3">
+                              <label for="firstName">First Name</label><label for="firstName" id="requiredFirstName" style="color:red" hidden=true>*required</label>
+                              <input class="form-control" id="firstName" name="firstName" type="text">
+                            </div>
+                            <div class="col-xs-3">
+                                  <label for="lastName">Last Name</label><label for="lastName" id="requiredLastName" style="color:red" hidden=true>*required</label>
+                                  <input class="form-control" name="lastName" id="lastName" type="text">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <div class="col-xs-6">
+                                    <label for="gender">Gender</label><label for="gender" id="requiredGender" style="color:red" hidden=true>*required</label>
+                                        <select class="form-control" id="gender" name="gender">
+                                            <option></option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <div class="col-xs-6">
+                                <label for="email">Email Id</label><label for="email" id="requiredEmail" style="color:red" hidden=true>*required</label><label for="email" hidden=true id="invalidEmail" style="color:red">*Invalid Email</label>
+                                <input type="text" name="email" class="form-control" id="email">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <div class="col-xs-6">
+                                <label for="password">Password</label><label for="password" id="requiredPassword" style="color:red" hidden=true>*required</label><label for="password" hidden=true id="passwordDoesNotMatch" style="color:red">*password does not match</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                            <label for="confirmPassword">Confirm Password</label><label for="confirmPassword" id="requiredConfirmPassword" hidden=true style="color:red">*required</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="cpnfirmPassword">
+                        </div>
+                    </div>
+             
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                        <label for="profession">Profession</label><label for="profession" id="requiredProfession" style="color:red" hidden=true>*required</label>
+                        <select class="form-control" id="profession">
+                            <option></option>
+                            <option>Student</option>
+                            <option>Teacher</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                            <label for="securityQuestion">Security Question</label><label for="securityQuestion" id="requiredSecurityQuestion"  hidden=true style="color:red">*required</label>
+                            <select class="form-control" id="securityQuestion" name="securityQuestion">
+                                <option></option>
+                                <option>What is your birth place?</option>
+                                <option>What is your mothers name?</option>
+                                <option>What is your birth place?</option>
+                                <option>What is the name of your primary school</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="answer">Answer</label><label for="answer" id="requiredAnswer" hidden=true style="color:red">*required</label>
+                        <input type="text" name="answer" class="form-control" id="answer">
+                    </div>
+                    </div>
+            <br>
+            <div class="form-group row">
+                <a class="btn btn-success btn-md" type="button" onclick="RegistrationModule.register();">&ensp;&ensp;Register&ensp;&ensp;</a>
+                <a class="btn btn-primary btn-md" type='button' onclick="RegistrationModule.clear();">&ensp;&ensp;&ensp;Clear&ensp;&ensp;&ensp;</a>
+            </div>
+            <h5>already registered??<a href='#' onclick='document.getElementById("loginPage").style.display="block"; document.getElementById("registrationPage").style.display="none";'>Click</a> here to Login</h5> 
+              </form>
+            </div>
+        </div>
+
+        <div id='loginPage' >
+            <div class="container">
+                <form id='loginForm'>
+                    <br><br><br><br><br><br>
+                    <h2>Login Page</h2>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-xs-4">
+                            <label for="loginEmail">Email-Id</label>
+                            <input type="text" class="form-control" id="loginEmail" name="loginEmail">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4">
+                            <label for="loginPassword">Password</label>
+                            <input  type="password" class="form-control" id="loginPassword" name="loginPasswd">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-xs-4">
+                        <a class="btn btn-success" onclick="LoginModule.login();">&ensp;&ensp;&ensp;&ensp;Log In&ensp;&ensp;&ensp;&ensp;</a>
+                        <a class="btn btn-primary" onclick="LoginModule.signup();">&ensp;&ensp;&ensp;&ensp;Sign Up&ensp;&ensp;&ensp;&ensp;</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id='homePage' hidden=true >
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" >DashBoard</a>
+                    </div>
+                        <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" onclick="HomeModule.getPersonalDetails();">Home</a></li>
+                        <li><a href="#" id='teacherOrStudent' onclick="ViewMemberModule.displayMembers();">Teacher</a></li>
+                        <li><a href="#" onclick="EditProfileModule.editProfile()">Edit Profile</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" ><span class="glyphicon glyphicon-user"></span><div id='user'></div> </a></li>
+                        <li><a href="#" onclick="HomeModule.logout();"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </nav> 
+
+            
+                <div class="container"> 
+                    <div class="form-group row">
+                            <div class="col-xs-2">
+                                    <a class="btn btn-primary btn-md" id="btnAddStudent" hidden=true onclick="addStudentModule.displayAddStudentForm();">Add Student</a> 
+                            </div>
+                    </div>
+                      
+                <div id="userBody">
+                    <h3 style="color:blue">Welcome to DashBoard</h3>
+                </div>
+                <div id='addStudentPage' hidden=true>
+                    <form id="addStudentForm" >
+                        <div class="form-group row">
+                           <div class="col-xs-3">
+                             <label for="AfirstName">First Name</label>
+                             <input class="form-control" id="AfirstName" name="AfirstName" type="text">
+                           </div>
+                           <div class="col-xs-3">
+                                 <label for="AlastName">Last Name</label>
+                                 <input class="form-control" name="AlastName" id="AlastName" type="text">
+                           </div>
+                         </div>
+                         <div class="form-group row">
+                             <div class="col-xs-6">
+                                 <label for="Agender">Gender</label>
+                                 <select class="form-control" id="Agender" name="Agender">
+                                     <option></option>
+                                     <option>Male</option>
+                                     <option>Female</option>
+                                 </select>
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <div class="col-xs-6">
+                                 <label for="Aemail">Email Id</label>
+                                 <input type="text" name="Aemail" class="form-control" id="Aemail">
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <div class="col-xs-6">
+                                 <label for="Apassword">Password</label>
+                                 <input type="password" class="form-control" id="Apassword" name="Apassword">
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                                 <div class="col-xs-6">
+                                     <label for="AconfirmPassword">Confirm Password</label>
+                                     <input type="password" class="form-control" id="AconfirmPassword" name="AconfirmPassword">
+                                 </div>
+                         </div>
+                         <div class="form-group row">
+                                 <div class="col-xs-6">
+                                     <label for="Aprofession">Profession</label>
+                                     <select class="form-control" id="Aprofession" name="Aprofession">
+                                         <option></option>
+                                         <option>Student</option>
+                                     </select>
+                                 </div>
+                         </div>
+                         <div class="form-group row">
+                                 <div class="col-xs-6">
+                                     <label for="Aquestion">Security Question</label>
+                                     <select class="form-control" id="Aquestion" name="Aquestion">
+                                         <option></option>
+                                         <option>What is your birth place?</option>
+                                         <option>What is your mothers name?</option>
+                                         <option>What is your birth place?</option>
+                                         <option>What is the name of your primary school</option>
+                                     </select>
+                                 </div>
+                         </div>
+                         <div class="form-group row">
+                                 <div class="col-xs-6">
+                                     <label for="Aanswer">Answer</label>
+                                     <input type="text" name="Aanswer" class="form-control" id="Aanswer">
+                                 </div>
+                         </div>
+                         <br>
+                         <div class="form-group row">
+                         <a class="btn btn-success btn-md" type="button" onclick="addStudentModule.addStudent();">&ensp;&ensp;Add Student&ensp;&ensp;</a>
+                         <a class="btn btn-primary btn-md" type='button' onclick="document.getElementById('addStudentForm').reset();">&ensp;&ensp;&ensp;Clear&ensp;&ensp;&ensp;</a>
+                         </div>
+                     
+                    </form>
+        
+                </div>
+                <div id='editProfilePage' hidden=true>
+                    <div class="container">
+                        <h3>Edit Info </h3><br>
+                        First Name&ensp;&ensp;&ensp;&ensp;&ensp;<input type="text"  id='editFirstName'><br><br>
+                        Last Name &ensp;&ensp;&ensp;&ensp;&ensp;<input type="text"  id='editLastName'><br><br>
+                        Email-Id &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="text" id='editEmail'><br><br>
+                        Profession &ensp;&ensp;&ensp;&ensp;&ensp;<input type="text"   id='editProfession'><br><br>
+                        <br><a onclick="EditProfileModule.updateProfile();" class="btn btn-primary">Save</a>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </body>  
+</html>
